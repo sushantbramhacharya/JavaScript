@@ -13,15 +13,15 @@ console.log(typeof string);//undefined
 console.log(typeof nullData);//object
 console.log(typeof dataNotDefined);//undefined
 
-//We can declare explicitly
+//Conversions
 let num=Number("10")//Automatically convert into number
 let num2=Number("10"+2)//returns 102 becuase treats as string then casts to number
 let num3=Number(10+"2")//returns 102 becuase treats as string then casts to number
-let str=String("Hello World")
-let bigNum=BigInt(1232131234)
+let str=String(123)
+let booleanConversion=Boolean(1)
 
 console.log(num+10);
 console.log(num2);
 console.log(num3);
 console.log(str);
-console.log(bigNum);
+console.log(booleanConversion);
