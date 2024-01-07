@@ -24,3 +24,7 @@ min=10
 max=20
 
 console.log(Math.floor(Math.random()*(max-min+1))+min);//+1 to remove 0
+
+var lakh=100000
+console.log(lakh.toLocaleString());//by default us 100,000
+console.log(lakh.toLocaleString("en-IN"));//1,00,000
