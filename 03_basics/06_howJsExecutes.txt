@@ -1,0 +1,59 @@
+Js is Single Threaded Programming Language
+
+Execution Context
+1.Global Execution Context
+2.Function Execution Context
+3.Eval Execution Context (Used in Mongoose)
+
+Phases
+1.Memory Creation Phase(Allocate Memory for variables objects etc)
+2.Execution Phase
+
+Example
+------------------
+let v1=10
+let v2=5
+function add(n1,n2)
+{
+    let total=n1+n2
+    return total
+}
+let res1=add(v1,v2)
+let res2=add(10,20)
+------------------
+1.Global Execution
+= allocates this compulsary
+
+2.Mermory Creation Phase
+= Gathers all the variables and stores
+= v1->undefined
+= v2->undefined
+add->defination
+= res1->undefined
+= res2->undefined
+
+3.Execution Phase
+= val1<-10
+= val2<-5
+= nothing in defination of function
+= res1->(new variable environmetn + Execution thread) New Executional = Context does all the phases for this specific function deletes after use
+        = 2.Mermory Creation Phase
+        = Gathers all the variables and stores
+        = n1->undefined
+        = n2->undefined
+        = total->undefined
+
+        = 2.Mermory Creation Phase
+        = Gathers all the variables and stores
+        = n1->10
+        = n2->5
+        = total->15
+
+        = 3.Destorys and returns
+
+Same Thing goes on-------------------------------------
+
+
+Call Stack
+= when func exectues gets pushed in call stack and popped affter Execution
+= Can be viewed from Inspect Element>Sources>Sinppets
