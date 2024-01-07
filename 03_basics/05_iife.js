@@ -1,6 +1,6 @@
 //Immediately Invoked Function Expressions IIFE
 //used to remove population from global scoped vars
-
+//Encapsulation: Variables declared within the IIFE are not accessible from the outside scope. This helps avoid polluting the global scope.
 (function display()
 {
     //named iife
