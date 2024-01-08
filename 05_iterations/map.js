@@ -1,4 +1,4 @@
-
+//returns value in new arr
 const arr=[1,2,3,4,5,"hello"];
 const newArr=arr.map((val)=>val);
 console.log(newArr);
