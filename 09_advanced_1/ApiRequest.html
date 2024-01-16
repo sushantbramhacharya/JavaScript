@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;color: white;">
+    <a href="" id="showProfile">Show Profile</a>
+</body>
+<script>
+    // 0	UNSENT	Client has been created. open() not called yet.
+    // 1	OPENED	open() has been called. 
+    // 2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    // 3	LOADING	Downloading; responseText holds partial data.
+    // 4	DONE	The operation is complete.
+    document.querySelector("#showProfile").addEventListener("click",(e)=>{
+        e.preventDefault();
+        const xhr=new XMLHttpRequest();
+        const requestURL="https://api.github.com/users/sushantbramhacharya";
+        xhr.open("GET",requestURL);
+        xhr.onreadystatechange=function()
+        {
+            console.log(xhr.readyState);
+            if(xhr.readyState===4)//4 is the operation is complete
+            {
+                const data=JSON.parse(this.responseText);//inside this context
+                //by Default this.responseText is string
+                console.log(data);
+
+                const img=document.createElement("img");
+                img.setAttribute("src",data.avatar_url);
+                img.setAttribute("width","100px");
+                document.body.appendChild(img)
+
+                const name=document.createElement("h3");
+                name.append(document.createTextNode(data.name))
+                document.body.appendChild(name)
+
+                const bio=document.createElement("p");
+                bio.append(document.createTextNode("Bio:"+data.bio))
+                document.body.appendChild(bio);
+
+                const followers=document.createElement("p");
+                followers.append(document.createTextNode("Followers:"+data.followers))
+                document.body.appendChild(followers);
+            }
+        }
+        xhr.send();
+        document.querySelector("#showProfile").remove();
+    })
+    
+</script>
+</html>
